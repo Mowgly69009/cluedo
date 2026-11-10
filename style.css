@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    padding: 10px;
+    background: #2f241c;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin: 10px;
+}
+
+button{
+    display:block;
+    margin:10px auto;
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    background:#c62828;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.section {
+    background: #f3e4c3;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.section h2{
+    text-align:center;
+    margin:5px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+    gap: 10px;
+}
+
+.card {
+    position: relative;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    border: 4px solid transparent;
+}
+
+.card img {
+    width: 100%;
+    height: 80px;
+    object-fit: contain;
+}
+
+.card p {
+    margin: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.barre img{
+    opacity:0.4;
+    filter:grayscale(100%);
+}
+
+.barre::after{
+    content:"❌";
+    position:absolute;
+    top:5px;
+    right:5px;
+    font-size:30px;
+}
+
+.suspect{
+    border:4px solid gold;
+}
+
+@media (max-width:768px){
+
+    .grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media (max-width:480px){
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
