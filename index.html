@@ -2,186 +2,265 @@
 <html lang="fr">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cluedo Junior</title>
-
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cluedo Junior</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>🕵️ Carnet Cluedo Junior</h1>
+<div id="selection">
 
-<button onclick="rejouer()">🔄 Rejouer</button>
+    <h1>🕵️ Cluedo Junior</h1>
 
-<div class="section">
+    <h2>Choisis ton détective</h2>
 
-<h2>Personnages</h2>
+    <div class="grid">
 
-<div class="grid">
+        <div class="card detectif" onclick="choisirDetective('Col. Moutarde','images/Moutarde.png',this)">
+            <img src="images/Moutarde.png">
+            <p>Col. Moutarde</p>
+        </div>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Moutarde.png">
-<p>Col. Moutarde</p>
-</div>
+        <div class="card detectif" onclick="choisirDetective('Mlle Rose','images/Rose.png',this)">
+            <img src="images/Rose.png">
+            <p>Mlle Rose</p>
+        </div>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Rose.png">
-<p>Mlle Rose</p>
-</div>
+        <div class="card detectif" onclick="choisirDetective('M. Olive','images/Olive.png',this)">
+            <img src="images/Olive.png">
+            <p>M. Olive</p>
+        </div>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Olive.png">
-<p>M. Olive</p>
-</div>
+        <div class="card detectif" onclick="choisirDetective('Mme Pervenche','images/Pervenche.png',this)">
+            <img src="images/Pervenche.png">
+            <p>Mme Pervenche</p>
+        </div>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Pervenche.png">
-<p>Mme Pervenche</p>
-</div>
+        <div class="card detectif" onclick="choisirDetective('Dr. Orchidée','images/Orchidee.png',this)">
+            <img src="images/Orchidee.png">
+            <p>Dr. Orchidée</p>
+        </div>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Orchidee.png">
-<p>Dr. Orchidée</p>
-</div>
+        <div class="card detectif" onclick="choisirDetective('Prof. Violet','images/Violet.png',this)">
+            <img src="images/Violet.png">
+            <p>Prof. Violet</p>
+        </div>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Violet.png">
-<p>Prof. Violet</p>
-</div>
+    </div>
 
-</div>
-
-</div>
-
-<div class="section">
-
-<h2>Jouets</h2>
-
-<div class="grid">
-
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Dinosaure.png">
-<p>Dinosaure</p>
-</div>
-
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Voiture.png">
-<p>Voiture</p>
-</div>
-
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Ours.png">
-<p>Ours</p>
-</div>
-
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Patate.png">
-<p>M. Patate</p>
-</div>
-
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Xylophone.png">
-<p>Xylophone</p>
-</div>
-
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Ballon.png">
-<p>Ballon</p>
-</div>
+    <button id="btnCommencer" style="display:none;" onclick="commencerEnquete()">
+        ▶ Commencer l'enquête
+    </button>
 
 </div>
 
-</div>
+<div id="jeu" style="display:none;">
 
-<div class="section">
+    <h1>🕵️ Carnet Cluedo Junior</h1>
 
-<h2>Mobilier</h2>
+    <div id="detectiveChoisi"></div>
 
-<div class="grid">
+    <div id="hypothese">
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Billard.png">
-<p>Billard</p>
-</div>
+        <h2>🧩 Mon hypothèse</h2>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Bureau.png">
-<p>Bureau</p>
-</div>
+        <div class="resume">
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Fauteuil.png">
-<p>Fauteuil</p>
-</div>
+            <div class="blocHypothese">
+                <h3>Qui a cassé ?</h3>
+                <div id="hypoPersonnage">❓</div>
+            </div>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Piano.png">
-<p>Piano</p>
-</div>
+            <div class="blocHypothese">
+                <h3>Quel jouet a été cassé ?</h3>
+                <div id="hypoJouet">❓</div>
+            </div>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Plante.png">
-<p>Plante</p>
-</div>
+            <div class="blocHypothese">
+                <h3>À quelle heure ?</h3>
+                <div id="hypoHeure">❓</div>
+            </div>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/Table.png">
-<p>Table</p>
-</div>
+        </div>
 
-</div>
+    </div>
 
-</div>
+    <button onclick="rejouer()">🔄 Rejouer</button>
 
-<div class="section">
 
-<h2>Heures</h2>
+    <div class="section">
 
-<div class="grid">
+        <h2>Personnages</h2>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/11.png">
-<p>11h</p>
-</div>
+        <div class="grid">
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/12.png">
-<p>12h</p>
-</div>
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Moutarde.png">
+                <p>Col. Moutarde</p>
+            </div>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/13.png">
-<p>13h</p>
-</div>
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Rose.png">
+                <p>Mlle Rose</p>
+            </div>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/14.png">
-<p>14h</p>
-</div>
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Olive.png">
+                <p>M. Olive</p>
+            </div>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/15.png">
-<p>15h</p>
-</div>
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Pervenche.png">
+                <p>Mme Pervenche</p>
+            </div>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/16.png">
-<p>16h</p>
-</div>
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Orchidee.png">
+                <p>Dr. Orchidée</p>
+            </div>
 
-<div class="card" onclick="changerEtat(this)">
-<img src="images/17.png">
-<p>17h</p>
-</div>
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Violet.png">
+                <p>Prof. Violet</p>
+            </div>
 
-</div>
+        </div>
+
+    </div>
+
+
+    <div class="section">
+
+        <h2>Jouets</h2>
+
+        <div class="grid">
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Dinosaure.png">
+                <p>Dinosaure</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Voiture.png">
+                <p>Voiture</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Ours.png">
+                <p>Ours</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Patate.png">
+                <p>M. Patate</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Xylophone.png">
+                <p>Xylophone</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Ballon.png">
+                <p>Ballon</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="section">
+
+        <h2>Mobilier</h2>
+
+        <div class="grid">
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Billard.png">
+                <p>Billard</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Bureau.png">
+                <p>Bureau</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Fauteuil.png">
+                <p>Fauteuil</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Piano.png">
+                <p>Piano</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Plante.png">
+                <p>Plante</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/Table.png">
+                <p>Table</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="section">
+
+        <h2>Heures</h2>
+
+        <div class="grid">
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/11.png">
+                <p>11h</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/12.png">
+                <p>12h</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/13.png">
+                <p>13h</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/14.png">
+                <p>14h</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/15.png">
+                <p>15h</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/16.png">
+                <p>16h</p>
+            </div>
+
+            <div class="card" onclick="changerEtat(this)">
+                <img src="images/17.png">
+                <p>17h</p>
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
